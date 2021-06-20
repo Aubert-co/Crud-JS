@@ -4,5 +4,10 @@
   "main": "index.js",
   "repository": "https://github.com/Aubert-co/Crud-JS.git",
   "author": "Black <53127242+Aubert-co@users.noreply.github.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
 }
