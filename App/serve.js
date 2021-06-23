@@ -1,9 +1,12 @@
 const app = require('express')()
+require('dotenv').config()
 
+const rotas = require('./route/rotas')
 
+app.use(rotas)
 
-app.listen(8080,()=>{
-    console.log('running at port 8080')
+app.listen(process.env.PORT,()=>{
+    console.log(`running at port ${process.env.PORT}`)
 })
 
 
