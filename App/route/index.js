@@ -1,14 +1,18 @@
-const router = require('express').Router()
+const route = require('express').Router()
+const MongoItens = require('../Model/DB')
 
-router
+
+route
 .get('/index',(req,res)=>{
     res.status(200).send({data:'valor'})
 })
 
 
 .post('/itens',(req,res)=>{
-    console.log(req.body)
-
+    const {price_item,name_item} = req.body
+    
     res.status(200).send({data:'valor'})
 })
-module.exports = router
+
+
+module.exports = route
