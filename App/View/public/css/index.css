@@ -1,0 +1,9 @@
+.container{
+    display: grid;
+    grid-template-columns: 15vh 65vh  20vh;
+    grid-template-areas: "he he he he he"
+                         "as1 ma ma ma as2"
+                         "fo fo fo fo fo ";
+}
+
+
