@@ -7,7 +7,6 @@ route
     res.status(200).send({data:'valor'})
 })
 
-
 .post('/itens',(req,res)=>{
     const {price_item,name_item} = req.body
     
