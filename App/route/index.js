@@ -2,6 +2,7 @@ const route = require('express').Router()
 const MongoItens = require('../Model/DB')
 
 
+
 route
 .get('/index',(req,res)=>{
     res.status(200).send({data:'valor'})
