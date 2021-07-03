@@ -1,4 +1,4 @@
-const mongo = require('mongoose')
+const mongo = require('mongodb')
 
 require('dotenv').config()
 
