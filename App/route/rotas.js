@@ -1,11 +1,12 @@
 const route = require('express').Router()
 const cors = require('cors')
-const bodyparser = require('body-parser')
-const itens = require('./itens')
+const index = require('./index')
+const bodyParser = require('body-parser')
 
 
 route.use(cors())
-route.use(bodyparser.json())
-route.use(itens)
+route.use(bodyParser.json())
+route.use(index)
+
 
 module.exports = route
