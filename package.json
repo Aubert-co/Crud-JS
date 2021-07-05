@@ -6,10 +6,13 @@
   "author": "Black <53127242+Aubert-co@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon ./app/serve.js"
+    "start": "nodemon ./app/serve.js",
+    "test": "mocha --exit"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
