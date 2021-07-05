@@ -4,4 +4,4 @@ route.get('/itens',(req,res)=>{
     res.status(200).send({data:'ola'})
 })
 
-modulex.exports = route
+module.exports = route
