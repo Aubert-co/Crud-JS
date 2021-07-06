@@ -10,14 +10,16 @@ chai.should()
 
 
 describe('ITENS ',()=>{
-    it('should return a status 200 and a data object',(done)=>{
+    it('should return a status 200 and a data array',(done)=>{
         chai.request(app)
         .get('/api/itens')
         .end((err,res)=>{
             if(err)done(err)
 
+            
             res.should.have.status(200)
-            expect(res.body).to.deep.own.include({msg:'sucessful'})
+            expect(res.body).to.be.a('array').that.includes('name')
+
             done()
         })
     })
