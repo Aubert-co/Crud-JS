@@ -4,7 +4,8 @@ const route = require('express').Router()
 
 
 route.get('/itens',(req,res)=>{
-    res.status(200).send({msg:'sucessful'})
+    const data =['name']
+    res.status(200).send(data)
 })
 
 .post('/itens',(req,res)=>{
