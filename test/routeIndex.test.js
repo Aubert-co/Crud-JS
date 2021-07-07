@@ -38,4 +38,38 @@ describe('ITENS ',()=>{
             done()
         })
     })
+
+
+    it('should return a status 200 and a sucessful msg when send correct id ',(done)=>{
+        chai.request(app)
+        .delete('/api/deleteItens')
+        .set({'Content-Type':'application/json'})
+        .send({id:12})
+        .end((err,res)=>{
+            if(err)done(err)
+
+            res.should.have.status(200)
+
+            expect(res.body).to.deep.own.include({msg:'delete sucessful'})
+
+            done()
+        })
+    })
+
+
+    it('should return a status 404 and a error msg when send wrong id ',(done)=>{
+        chai.request(app)
+        .delete('/api/deleteItens')
+        .set({'Content-Type':'application/json'})
+        .send({id:'12ee'})
+        .end((err,res)=>{
+            if(err)done(err)
+
+            res.should.have.status(404)
+
+            expect(res.body).to.deep.own.include({msg:'erro ao deletar'})
+
+            done()
+        })
+    })
 })
