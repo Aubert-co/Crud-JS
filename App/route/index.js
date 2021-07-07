@@ -21,9 +21,16 @@ route
     res.status(200).send({msg:'post sucessful'})
 })
 
-
 .delete('/deleteItens',(req,res)=>{
-    res.status(200).send({msg:'sucess'})
+
+    const {id} = req.body
+ 
+    console.log( typeof id !== 'object')
+
+    if(isNaN(id) )return res.status(404).send({msg:'erro ao deletar'})
+
+    res.status(200).send({msg:'delete sucessful'})
 })
+
 
 module.exports = route
