@@ -3,8 +3,11 @@ const route = require('express').Router()
 
 
 
-route.get('/itens',(req,res)=>{
+route
+.get('/itens',(req,res)=>{
     const data =['name']
+
+
     res.status(200).send(data)
 })
 
@@ -16,6 +19,11 @@ route.get('/itens',(req,res)=>{
         return res.status(404).send({msg:'erro'})
     }
     res.status(200).send({msg:'post sucessful'})
+})
+
+
+.delete('/deleteItens',(req,res)=>{
+    res.status(200).send({msg:'sucess'})
 })
 
 module.exports = route
