@@ -24,10 +24,9 @@ route
 .delete('/deleteItens',(req,res)=>{
 
     const {id} = req.body
- 
-    console.log( typeof id !== 'object')
 
-    if(isNaN(id) )return res.status(404).send({msg:'erro ao deletar'})
+
+    if(typeof id !== 'number'  &&  typeof id !== 'object')return res.status(404).send({msg:'erro ao deletar'})
 
     res.status(200).send({msg:'delete sucessful'})
 })
