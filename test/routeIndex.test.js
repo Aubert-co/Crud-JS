@@ -18,7 +18,7 @@ describe('ITENS ',()=>{
 
             
             res.should.have.status(200)
-            expect(res.body).to.be.a('array').that.includes('name')
+            expect(res.body).to.be.a('array')
 
             done()
         })
