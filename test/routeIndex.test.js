@@ -10,7 +10,7 @@ chai.should()
 
 
 describe('APIS Itens ',()=>{
-    it('should return a status 200 and a data array',(done)=>{
+    it('should return a status 200 and a data array get/itens',(done)=>{
         chai.request(app)
         .get('/api/itens')
         .end((err,res)=>{
@@ -24,7 +24,7 @@ describe('APIS Itens ',()=>{
         })
     })
 
-    it('should return a status 200 and a sucessl menssage',(done)=>{
+    it('should return a status 200 and a sucessl menssage when send correct datas to post/itens',(done)=>{
         chai.request(app)
         .post('/api/itens')
         .set({'Content-Type':'application/json'})
@@ -38,9 +38,22 @@ describe('APIS Itens ',()=>{
             done()
         })
     })
+    it('should return a status 404 and a error menssage when send wrong datas to post/itens',(done)=>{
+        chai.request(app)
+        .post('/api/itens')
+        .set({'Content-Type':'application/json'})
+        .send({name_item:12,price_item:'e'})
+        .end((err,res)=>{
+            if(err)done(err)
 
+            res.should.have.status(404)
 
-    it('should return a status 200 and a sucessful msg when send correct id ',(done)=>{
+            expect(res.body).to.deep.own.include({msg:'wrong datas'})
+            done()
+        })
+    })
+
+    it('should return a status 200 and a sucessful msg when send correct id to delete/itens',(done)=>{
         chai.request(app)
         .delete('/api/deleteItens')
         .set({'Content-Type':'application/json'})
@@ -81,7 +94,39 @@ describe('APIS Itens ',()=>{
 
             res.should.have.status(404)
 
-            expect(res.body).to.deep.own.include({msg:'erro ao deletar'})
+            expect(res.body).to.deep.own.include({msg:'not found'})
+
+            done()
+        })
+    })
+
+    it('should return a status 200 when send a correct values to put/updateItens ',(done)=>{
+        chai.request(app)
+        .put('/api/UpdteItens')
+        .set({'Content-Type':'application/json'})
+        .send({id:15,name_item:'camisa',price_item:15})
+        .end((err,res)=>{
+            if(err)done(err)
+
+            res.should.have.status(200)
+
+            expect(res.body).to.deep.own.include({msg:'update sucessful'})
+
+            done()
+        })
+    })
+
+    it('should return a status 404 when send a wrongs values to put/uptadeItens ',(done)=>{
+        chai.request(app)
+        .put('/api/UpdteItens')
+        .set({'Content-Type':'application/json'})
+        .send({id:'ee',name_item:'',price_item:''})
+        .end((err,res)=>{
+            if(err)done(err)
+
+            res.should.have.status(404)
+
+            expect(res.body).to.deep.own.include({msg:'not found'})
 
             done()
         })
