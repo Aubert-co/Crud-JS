@@ -14,3 +14,7 @@ const DivContent = document.querySelector('#content')
 </tr>
 </table>
 `*/
+
+fetch('',{
+    met
+})
