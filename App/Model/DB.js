@@ -7,6 +7,7 @@ mongo.connect(`${process.env.HOST_MONGO}`,{useUnifiedTopology:true,useNewUrlPars
 const Schema = mongo.Schema
 
 const schema = new Schema({
+    
     price_item:String,
     name_item:String
 })
