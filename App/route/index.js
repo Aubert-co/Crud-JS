@@ -1,8 +1,6 @@
 const route = require('express').Router()
 
 
-
-
 route
 .get('/itens',(req,res)=>{
     const data =[]
