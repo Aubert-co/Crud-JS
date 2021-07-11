@@ -13,11 +13,11 @@
 ####  O backend (express) envia os dados para o frontend onde esté terá as opções de excluir , editar,atulizar e selecionar.
 ### Caracteristicas:
 
--[X]<input type="checkbox" checked="true"> Rotas
+-[x]<input type="checkbox" checked="true"> Rotas
 
--[X]<input type="checkbox" checked="true"> Testes Backend
+-[x]<input type="checkbox" checked="true"> Testes Backend
 
--[X]<input type="checkbox"> Front end
+[X]<input type="checkbox"> Front end
 
 
 
