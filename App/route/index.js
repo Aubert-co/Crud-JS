@@ -5,7 +5,6 @@ route
 .get('/itens',(req,res)=>{
     const data =[]
 
-
     res.status(200).send(data)
 })
 
