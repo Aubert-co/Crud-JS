@@ -8,7 +8,7 @@
  - MongoDB
  - Mocha
  - Chai
- - Jest
+
  ### Resumo:
 ####  O backend (express) envia os dados para o frontend onde esté terá as opções de excluir , editar,atulizar e selecionar.
  ### Caracteristicas:
