@@ -1,4 +1,4 @@
-const mongo = require('mongodb')
+const mongo = require('mongoose')
 
 require('dotenv').config()
 
@@ -7,11 +7,13 @@ mongo.connect(`${process.env.HOST_MONGO}`,{useUnifiedTopology:true,useNewUrlPars
 const Schema = mongo.Schema
 
 const schema = new Schema({
-    
-    price_item:String,
-    name_item:String
-})
+    _id: Schema.ObjectId,
+    name_item:String,
+    price_item:Number,
+    color_item:String,
+    quantities_item:Number
+}) 
 
-const Itens = mongo.model('itens',schema)
+const Itens = mongo.model('Itens',schema)
 
 module.exports = Itens
