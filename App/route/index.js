@@ -3,8 +3,9 @@ const ItensDB = require('../Model/DB')
 
 route
 .get('/itens',async(req,res)=>{
-  
-    res.status(200).send('data')
+    
+    const data = await ItensDB.find({})
+    res.status(200).send(data)
 })
 
 
@@ -12,7 +13,8 @@ route
 
     const {name_item,price_item,color_item,quantities_item,ItensID} = req.body
 
-    if(typeof name_item !== 'string' || typeof price_item !=='number' || name_item ===''){
+    if(typeof name_item !== 'string' || typeof price_item !=='number' || name_item ===''
+     || color_item === '' || quantities_item === ''){
         return res.status(404).send({msg:'wrong datas'})
     }
     try{
