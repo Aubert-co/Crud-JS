@@ -1,5 +1,5 @@
 const route = require('express').Router()
-const ItensDB = require('../Model/DB')
+
 const {GetItens,PostItens,
 UpdateItens,DeleteItens} = require('../Controller/index')
 
