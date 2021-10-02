@@ -14,4 +14,11 @@ describe('APIS Itens ',()=>{
         expect(resp.body.data).to.be.a('array')
     
     })
+
+    test('should return a status 200 and a data POST/itens',async()=>{
+        const resp = await request(app)
+        .post('/api/itens')
+    })
 })
+
+
