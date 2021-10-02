@@ -2,7 +2,7 @@ const ItensDB = require('../Model/DB')
 const Routes = {
     GetItens:async(req,res)=>{
         const data = await ItensDB.find({})
-        res.status(200).send(data)
+        res.status(200).send({data})
     },
     PostItens:async(req,res)=>{
         const {name_item,price_item,color_item,quantities_item,ItensID} = req.body
@@ -48,6 +48,10 @@ const Routes = {
             if(err)throw err
         }
         res.status(200).send({msg:'update sucessful'})
+    },
+    FindItens:async(req,res)=>{
+        const {id_itens,name_item} = req.body
+        const data = await ItensDB.find({name_item})
     }
 }
 
