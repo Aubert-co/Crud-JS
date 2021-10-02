@@ -52,6 +52,8 @@ const Routes = {
     FindItens:async(req,res)=>{
         const {id_itens,name_item} = req.body
         const data = await ItensDB.find({name_item})
+
+        res.status(200).send({data})
     }
 }
 
