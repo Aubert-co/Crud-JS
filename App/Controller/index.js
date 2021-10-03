@@ -31,10 +31,11 @@ const Routes = {
         }
         try{
             ItensDB.deleteOne({id_itens});
+            res.status(200).send({msg:'delete sucessful'})
         }catch(err){
             if(err)throw err
         }
-        res.status(200).send({msg:'delete sucessful'})
+        
     },
    
     UpdateItens:async(req,res)=>{
@@ -60,8 +61,11 @@ const Routes = {
         if(name_item === ''){
             return res.status(404).send({msg:'invalid datas'})
         }
+        try{    
         const data = await ItensDB.find({name_item})
-
+        }catch(err){
+            if(err)throw err
+        }
         res.status(200).send({data})
     }
 }
