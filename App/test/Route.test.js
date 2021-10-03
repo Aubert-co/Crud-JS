@@ -15,9 +15,13 @@ describe('APIS Itens ',()=>{
     
     })
 
-    test('should return a status 200 and a data POST/itens',async()=>{
+    test('should return a status 404 when send invalid datas  post/itens',async()=>{
         const resp = await request(app)
         .post('/api/itens')
+        .send({name_item:32,price_item:43,color_item:'blue',quantities_item:34})
+
+        expect(resp.statusCode).to.equal(404)
+        expect(resp.body.msg).to.equal('invalid datas')
     })
 })
 
