@@ -1,11 +1,10 @@
 const route = require('express').Router()
 
 const {GetItens,PostItens,
-UpdateItens,DeleteItens} = require('../Controller/index')
+UpdateItens,DeleteItens,FindItens} = require('../Controller/index')
 
 route
 .get('/itens',GetItens)
-
 
 .post('/itens',PostItens)
 
@@ -13,4 +12,5 @@ route
 
 .put('/itens',UpdateItens)
 
+.post('/itens',FindItens)
 module.exports = route
