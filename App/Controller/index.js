@@ -18,10 +18,11 @@ const Routes = {
             color_item,
             quantities_item
         })
+        res.status(200).send({msg:'post sucessful'})
     }catch(err){
-        throw err
+        res.status(404).send({msg:'something went wrong'})
     }
-    res.status(200).send({msg:'post sucessful'})
+
     },
     DeleteItens:async(req,res)=>{
         const {id_itens} = req.body
@@ -33,7 +34,7 @@ const Routes = {
             ItensDB.deleteOne({id_itens});
             res.status(200).send({msg:'delete sucessful'})
         }catch(err){
-            if(err)throw err
+            res.status(404).send({msg:'something went wrong'})
         }
         
     },
@@ -50,10 +51,11 @@ const Routes = {
             {
                 $set:{name_item,price_item,color_item,quantities_item}
             })
+            res.status(200).send({msg:'update sucessful'})
         }catch(err){
-            if(err)throw err
+            res.status(404).send({msg:'something went wrong'})
         }
-        res.status(200).send({msg:'update sucessful'})
+     
     },
     FindItens:async(req,res)=>{
         const {name_item} = req.body
@@ -63,10 +65,11 @@ const Routes = {
         }
         try{    
         const data = await ItensDB.find({name_item})
-        }catch(err){
-            if(err)throw err
-        }
         res.status(200).send({data})
+        }catch(err){
+            res.status(404).send({msg:'something went wrong'})
+        }
+     
     }
 }
 
